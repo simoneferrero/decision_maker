@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Decision Maker</title>
-    <link rel="stylesheet" type="text/css" href="decision_maker.css">
+    <!--<link rel="stylesheet" type="text/css" href="decision_maker.css">-->
     <script src="siti_prova_programmi_vari/Decisionatore.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
   </head>
@@ -12,12 +12,13 @@
     </div>
     <div>
       <p>Too many choices, too little time.<br/><br/>
-        What do you want to eat for lunch? Should you go clubbing or stay home tonight? Would you rather wear pants or a skirt?</br>
-        We are put in front of mutiple choices every day, every time. Some simple, some hard.<br/>
-        This tool is here to help!</p>
+        What do you want to eat for lunch? Should you go clubbing or stay home and watch tv? Is the red shirt better than the blue one?</br>
+        We are put in front of mutiple choices every day, every time. Some are simple, other hard.<br/>
+        Fret no more: This tool is here to help!</p>
     </div>
     <div>
       <h3>Write your options here, one at a time, and press "ADD ME"!<br/>
+        You can remove an option by clicking on the corresponding button.<br/>
         When you are ready, let the DECISION MAKER choose for you!</h3>
         <input id="choice" type="text" name="choices"/>
         <br/>
@@ -26,12 +27,14 @@
           <input type="button" value="ADD ME" onclick="choiceAdder()"style="border:1px solid black;width:150px;height:40px;overflow:auto">
         </div>
     </div>
-    <div id="confirm" style="visibility: hidden">Choice added</div>
+    <br/>
+    <div style="width:150px;height:40px;border:1px solid black"><p id="confirm" style="visibility:hidden">Choice added</p></div>
+    <br/>
     <div id="list_of_choices">
     </div>
     <h2>And the result is...</h2>
     <div id="result_button">
-      <input type="button" value="CHOOSE!" onclick="decisionator(choices)"style="border:1px solid black;width:150px;height:40px;overflow:auto">
+      <input type="button" value="CHOOSE!" onclick="randomizer(choices)"style="border:1px solid black;width:150px;height:40px;overflow:auto">
     </div>
     <h2 id="result"></h2>
   </body>
