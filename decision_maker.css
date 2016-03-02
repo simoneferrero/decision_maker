@@ -1,0 +1,237 @@
+html, body {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin-top: -0.01%;
+  margin-left: -0.01%;
+  font-family: 'Shadows Into Light', cursive;
+  color: rgb(255, 255, 255);
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  top: 0;
+  position: relative;
+  background: url("background_1.jpg") top center no-repeat;
+  background-size: cover;
+}
+
+#title {
+  font-family: 'Kristi', cursive;
+  font-size: 1000%;
+  left: 22%;
+  position: absolute;
+  top: 15%;
+  transform: rotate(-15deg);
+  width: 900px;
+}
+
+#quote {
+  position: absolute;
+  left: 60%;
+  top: 55%;
+  font-size: 180%;
+  text-align: right;
+}
+
+#quote i {
+  font-size: 80%;
+}
+
+#slider {
+  width: 6%;
+  height: auto;
+  min-width: 80px;
+  top: 4%;
+  right: 0;
+  margin-right: 1%;
+  float: left;
+  position: absolute;
+  font-size: 800%;
+  padding-top: -100%;
+  z-index: 999;
+}
+
+@keyframes spin_cw{
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(180deg);}
+}
+
+.spinner_cw {
+  animation-name: spin_cw;
+  animation-duration: 2.3s;
+}
+
+@keyframes spin_ccw{
+  from {-webkit-transform:rotate(180deg);}
+  to {-webkit-transform:rotate(0deg);}
+}
+
+.spinner_ccw {
+  animation-name: spin_ccw;
+  animation-duration: 2.3s;
+}
+
+#second_page {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  margin-right: -100%;
+  background: url("http://gatosdesignandillustration.com/wp-content/uploads/white-parchment-paper-texture-1-1024x575.jpg") top center no-repeat;
+  background-size: cover;
+  position: absolute;
+  color: rgb(0, 0, 0);
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#description {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  font-size: 200%;
+}
+
+#second_row {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+#second_row div {
+  margin: 0.5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 450px;
+}
+
+#explanation {
+  font-size: 150%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+#choice_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#list_of_choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  overflow-y: scroll;
+  min-height: 230px;
+  max-height: 230px;
+}
+
+#choice_div {
+  text-align: center;
+  max-height: 80px;
+}
+
+#button_div {
+  text-align: center;
+}
+
+#choice {
+  border: 4px solid rgb(0, 0, 0);
+  font-size: 200%;
+  background-color: transparent;
+  font-family: 'Shadows Into Light', cursive;
+  text-align: center;
+}
+
+#choice::-webkit-input-placeholder {
+  color: rgb(0, 0, 0) !important;
+  font-family: 'Shadows Into Light', cursive;
+  text-align: center;
+}
+
+.fixed_button {
+  border: 4px solid rgb(255, 255, 255);
+  background-color: rgb(135, 135, 135);
+  color: rgb(255, 255, 255);
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 200%;
+  width: 100%;
+}
+
+.fixed_button:hover {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: 4px solid rgb(0, 0, 0);
+}
+
+#confirm_div {
+  display: block;
+  min-height: 40px;
+  text-align: center;
+}
+
+#confirm {
+  font-size: 150%;
+}
+
+.remove_button {
+  display: inline-block;
+  border: 4px solid rgb(255, 255, 255);
+  background-color: rgb(135, 135, 135);
+  color: rgb(255, 255, 255);
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 180%;
+  width: 46%;
+  max-width: 46%;
+  max-height: 50px;
+  text-align: center;
+  margin: 2%;
+  overflow: hidden;
+}
+
+.remove_button:hover {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+#result_button {
+  min-width: 400px;
+  font-size: 60%;
+  margin: 1% auto;
+  width: 20%;
+  font-size: 150%;
+}
+
+#result_button input {
+  padding: 0 20% 0 20%;
+}
+
+#box {
+  margin-top: 1%;
+  width: 100%;
+  height: 20%;
+  text-align: center;
+  font-size: 400%;
+  position: relative;
+}
+
+#result {
+  border: 4px solid black;
+  visibility: hidden;
+  padding: 0 5% 0 5%;
+}
