@@ -119,7 +119,7 @@ textarea:focus, input:focus{
 #first_column {
   font-size: 150%;
   width: 30%;
-  min-width: 500px;
+  min-width: 450px;
   border: 2px solid black;
 }
 
@@ -129,7 +129,7 @@ textarea:focus, input:focus{
   justify-content: center;
   border: 2px solid black;
   width: 30%;
-  min-width: 500px;
+  min-width: 450px;
 }
 
 #third_column {
@@ -138,24 +138,25 @@ textarea:focus, input:focus{
   justify-content: center;
   border: 2px solid black;
   width: 30%;
-  min-width: 500px;
+  min-width: 450;
+  padding: 0;
+  margin: 0;
 }
 
 #result_row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: space-between;
   border: 2px solid black;
-  width: 100%;
+  width: 94%;
   min-width: 700px;
-  max-height: 30%;
 }
 
 #choice_div {
   text-align: center;
   border: 2px solid black;
   width: 100%;
-  min-width: 470px;
 }
 
 #choice {
@@ -177,7 +178,6 @@ textarea:focus, input:focus{
 .button_div {
   text-align: center;
   width: 100%;
-  min-width: 470px;
 }
 
 .fixed_button {
@@ -197,15 +197,16 @@ textarea:focus, input:focus{
 
 #confirm_div {
   display: block;
-  min-height: 40px;
+  min-height: 60px;
   text-align: center;
   border: 2px solid black;
+  padding: 0;
 }
 
 #confirm {
-  font-size: 150%;
+  font-size: 230%;
   width: 100%;
-  min-width: 470px;
+  padding: 0;
 }
 
 #list_of_choices {
@@ -214,11 +215,9 @@ textarea:focus, input:focus{
   justify-content: flex-start;
   align-content: flex-start;
   overflow-y: scroll;
-  min-height: 180px;
-  max-height: 180px;
+  height: 180px;
   border: 2px solid black;
   width: 100%;
-  min-width: 470px;
 }
 
 .remove_button {
@@ -242,7 +241,7 @@ textarea:focus, input:focus{
 }
 
 #result_button {
-  min-width: 500px;
+  min-width: 450px;
   width: 30%;
   font-size: 60%;
   margin: 0 auto;
