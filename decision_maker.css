@@ -121,6 +121,7 @@ textarea:focus, input:focus{
   width: 30%;
   min-width: 450px;
   border: 2px solid black;
+  text-align: justify;
 }
 
 #second_column {
@@ -138,7 +139,7 @@ textarea:focus, input:focus{
   justify-content: center;
   border: 2px solid black;
   width: 30%;
-  min-width: 450;
+  min-width: 450px;
   padding: 0;
   margin: 0;
 }
@@ -151,6 +152,7 @@ textarea:focus, input:focus{
   border: 2px solid black;
   width: 94%;
   min-width: 700px;
+  padding: 0;
 }
 
 #choice_div {
@@ -264,4 +266,5 @@ textarea:focus, input:focus{
 
 #result {
   border: 4px solid black;
+  padding: 0 2% 0 2%;
 }
