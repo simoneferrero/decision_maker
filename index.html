@@ -36,31 +36,32 @@
       });
       </script>
       <div id="second_page">
-        <div id="description">
+        <div id="description_row">
           Of all the decisions we have to make every day, the smallest can often be the hardest.<br/>
           Let this tool help you choose.
         </div>
-        <div id="second_row">
-          <div id="explanation">Write your options in the box, one at a time, and press "ADD ME"!<br/>
-            If you wish, you can remove them by clicking on the corresponding button.<br/>
-            When you are ready, let the DECISION MAKER choose for you!</div>
-          <div id="choice_box">
-            <div id="choice_div"><input id="choice" type="text" name="choices" placeholder="Your choice"/></div>
-            <script>$("#choice").keypress(function(event){
-                if(event.keyCode == 13){
-                  $("#add_button").click();
-                }
-              });
-            </script>
-            <div id="button_div"><input class="fixed_button" id="add_button" type="button" value="ADD ME" onclick="choiceAdder()"></div>
-          </div>
-          <div id="list_of_choices">
-            <div id="confirm_div"><span id="confirm">Choice added</span></div>
-          </div>
+        <div id="first_column">Write your options in the box, one at a time, and press "ADD ME"!<br/>
+          If you wish, you can remove them by clicking on the corresponding button.<br/>
+          When you are ready, let the DECISION MAKER choose for you!</div>
+        <div id="second_column">
+          <div id="choice_div"><input id="choice" type="text" name="choices" placeholder="Your choice"/></div>
+          <script>$("#choice").keypress(function(event){
+              if(event.keyCode == 13){
+                $("#add_button").click();
+              }
+            });
+          </script>
+          <div class="button_div"><input class="fixed_button" id="add_button" type="button" value="ADD ME" onclick="choiceAdder()"></div>
         </div>
-        <div id="result_button"><input class="fixed_button" type="button" value="CHOOSE!" onclick="randomizer(choices)"></div>
-        <div id="box"><span id="result"></span></div>
+        <div id="third_column">
+          <div id="confirm_div"><span id="confirm">Choice added</span></div>
+          <div id="list_of_choices"></div>
+        </div>
+        <div id="result_row">
+          <div class="button_div" id="result_button"><input class="fixed_button" type="button" value="CHOOSE!" onclick="randomizer(choices)"></div>
+          <div id="box"><span id="result"></span></div>
+        </div>
       </div>
-    </container>
+    </div>
   </body>
 </html>
