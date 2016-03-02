@@ -7,10 +7,10 @@ function randomizer(array) {
   var newChoice = array[Math.floor(Math.random()*array.length)];
   if (array.length > 0) {
     $("#result").text(newChoice);
-    $("#result").css("visibility", "visible");
+    $("#box").css("visibility", "visible");
   } else {
     $("#result").text("You have no options to choose from!");
-    $("#result").css("visibility", "visible");
+    $("#box").css("visibility", "visible");
   }
 }
 
