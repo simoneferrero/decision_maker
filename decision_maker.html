@@ -2,40 +2,65 @@
 <html>
   <head>
     <title>Decision Maker</title>
-    <!--<link rel="stylesheet" type="text/css" href="decision_maker.css">-->
-    <script src="siti_prova_programmi_vari/Decisionatore.js"></script>
+    <link rel="stylesheet" type="text/css" href="decision_maker.css">
+    <script src="decision_maker.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Kristi|Shadows+Into+Light' rel='stylesheet' type='text/css'>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
   </head>
   <body>
-    <div>
-      <h1>THE DECISION MAKER</h1>
-    </div>
-    <div>
-      <p>Too many choices, too little time.<br/><br/>
-        What do you want to eat for lunch? Should you go clubbing or stay home and watch tv? Is the red shirt better than the blue one?</br>
-        We are put in front of mutiple choices every day, every time. Some are simple, other hard.<br/>
-        Fret no more: This tool is here to help!</p>
-    </div>
-    <div>
-      <h3>Write your options here, one at a time, and press "ADD ME"!<br/>
-        You can remove an option by clicking on the corresponding button.<br/>
-        When you are ready, let the DECISION MAKER choose for you!</h3>
-        <input id="choice" type="text" name="choices"/>
-        <br/>
-        <br/>
-        <div id="add_button">
-          <input type="button" value="ADD ME" onclick="choiceAdder()"style="border:1px solid black;width:150px;height:40px;overflow:auto">
+    <script>
+      $(document).ready(function () {
+        $("#confirm").fadeOut(0);
+      });
+    </script>
+    <div id="container">
+      <div id="banner">
+        <div id="title">THE DECISION MAKER</div>
+        <div id="quote">
+        "Choice. The problem is choice."<br/>
+        <i>- Neo, The Matrix Reloaded</i>
         </div>
-    </div>
-    <br/>
-    <div style="width:150px;height:40px;border:1px solid black"><p id="confirm" style="visibility:hidden">Choice added</p></div>
-    <br/>
-    <div id="list_of_choices">
-    </div>
-    <h2>And the result is...</h2>
-    <div id="result_button">
-      <input type="button" value="CHOOSE!" onclick="randomizer(choices)"style="border:1px solid black;width:150px;height:40px;overflow:auto">
-    </div>
-    <h2 id="result"></h2>
+      </div>
+      <img src="slider.png" id="slider"/>
+      <script>$(document).ready(function () {
+        var expanded = false;
+        $("#slider").click(function () {
+          if (expanded = !expanded) {
+            $("#second_page").animate({"margin-right": 0}, 2000);
+            $("#slider").removeClass("spinner_ccw").animate({"margin-right": "93%"}, 2000, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
+          } else {
+            $("#second_page").animate({"margin-right": "-100%"}, 2000);
+            $("#slider").removeClass("spinner_cw").animate({"margin-right": "1%"}, 2000).addClass("spinner_ccw").css("transform", "");
+          }
+        });
+      });
+      </script>
+      <div id="second_page">
+        <div id="description">
+          Of all the decisions we have to make every day, the smallest can often be the hardest.<br/>
+          Let this tool help you choose.
+        </div>
+        <div id="second_row">
+          <div id="explanation">Write your options in the box, one at a time, and press "ADD ME"!<br/>
+            If you wish, you can remove them by clicking on the corresponding button.<br/>
+            When you are ready, let the DECISION MAKER choose for you!</div>
+          <div id="choice_box">
+            <div id="choice_div"><input id="choice" type="text" name="choices" placeholder="Your choice"/></div>
+            <script>$("#choice").keypress(function(event){
+                if(event.keyCode == 13){
+                  $("#add_button").click();
+                }
+              });
+            </script>
+            <div id="button_div"><input class="fixed_button" id="add_button" type="button" value="ADD ME" onclick="choiceAdder()"></div>
+          </div>
+          <div id="list_of_choices">
+            <div id="confirm_div"><span id="confirm">Choice added</span></div>
+          </div>
+        </div>
+        <div id="result_button"><input class="fixed_button" type="button" value="CHOOSE!" onclick="randomizer(choices)"></div>
+        <div id="box"><span id="result"></span></div>
+      </div>
+    </container>
   </body>
 </html>
