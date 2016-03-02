@@ -119,7 +119,7 @@ textarea:focus, input:focus{
 #first_column {
   font-size: 150%;
   width: 30%;
-  min-width: 450px;
+  min-width: 500px;
   border: 2px solid black;
   text-align: justify;
 }
@@ -130,7 +130,7 @@ textarea:focus, input:focus{
   justify-content: center;
   border: 2px solid black;
   width: 30%;
-  min-width: 450px;
+  min-width: 500px;
 }
 
 #third_column {
@@ -139,7 +139,7 @@ textarea:focus, input:focus{
   justify-content: center;
   border: 2px solid black;
   width: 30%;
-  min-width: 450px;
+  min-width: 500px;
   padding: 0;
   margin: 0;
 }
@@ -243,7 +243,7 @@ textarea:focus, input:focus{
 }
 
 #result_button {
-  min-width: 450px;
+  min-width: 500px;
   width: 30%;
   font-size: 60%;
   margin: 0 auto;
