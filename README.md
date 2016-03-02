@@ -1,4 +1,3 @@
 # DECISION MAKER
 
-I'm building a website that takes strings, puts them into an array and randomly picks one when asked.
-It's the RANDOMIZER!
+I'm building a simple website that returns a random choice from a list of strings typed by the user.
