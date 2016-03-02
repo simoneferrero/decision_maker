@@ -85,69 +85,77 @@ textarea:focus, input:focus{
   width: 100%;
   top: 0;
   right: 0;
+  margin: 0 auto;
   margin-right: -100%;
   background: url("http://gatosdesignandillustration.com/wp-content/uploads/white-parchment-paper-texture-1-1024x575.jpg") top center no-repeat;
   background-size: cover;
   position: absolute;
   color: rgb(0, 0, 0);
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-#description {
-  width: 70%;
+#second_page div {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin: 1%;
+}
+
+#description_row {
+  width: 80%;
+  min-width: 700px;
   text-align: center;
   margin: 0 auto;
   margin-top: 2%;
   margin-bottom: 4%;
   font-size: 200%;
+  border: 2px solid black;
 }
 
-#second_row {
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-}
 
-#second_row div {
-  margin: 0.5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  width: 450px;
-}
-
-#explanation {
+#first_column {
   font-size: 150%;
-  padding-left: 1%;
-  padding-right: 1%;
+  width: 30%;
+  min-width: 500px;
+  border: 2px solid black;
 }
 
-#choice_box {
+#second_column {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border: 2px solid black;
+  width: 30%;
+  min-width: 500px;
 }
 
-#list_of_choices {
+#third_column {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
-  overflow-y: scroll;
-  min-height: 230px;
-  max-height: 230px;
+  justify-content: center;
+  border: 2px solid black;
+  width: 30%;
+  min-width: 500px;
+}
+
+#result_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px solid black;
+  width: 100%;
+  min-width: 700px;
+  max-height: 30%;
 }
 
 #choice_div {
   text-align: center;
-  max-height: 80px;
-}
-
-#button_div {
-  text-align: center;
+  border: 2px solid black;
+  width: 100%;
+  min-width: 470px;
 }
 
 #choice {
@@ -156,12 +164,20 @@ textarea:focus, input:focus{
   background-color: transparent;
   font-family: 'Shadows Into Light', cursive;
   text-align: center;
+  width: 98.7%;
 }
 
 #choice::-webkit-input-placeholder {
   color: rgb(0, 0, 0) !important;
   font-family: 'Shadows Into Light', cursive;
   text-align: center;
+}
+
+
+.button_div {
+  text-align: center;
+  width: 100%;
+  min-width: 470px;
 }
 
 .fixed_button {
@@ -183,10 +199,26 @@ textarea:focus, input:focus{
   display: block;
   min-height: 40px;
   text-align: center;
+  border: 2px solid black;
 }
 
 #confirm {
   font-size: 150%;
+  width: 100%;
+  min-width: 470px;
+}
+
+#list_of_choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  overflow-y: scroll;
+  min-height: 180px;
+  max-height: 180px;
+  border: 2px solid black;
+  width: 100%;
+  min-width: 470px;
 }
 
 .remove_button {
@@ -210,10 +242,10 @@ textarea:focus, input:focus{
 }
 
 #result_button {
-  min-width: 400px;
+  min-width: 500px;
+  width: 30%;
   font-size: 60%;
-  margin: 1% auto;
-  width: 20%;
+  margin: 0 auto;
   font-size: 150%;
 }
 
@@ -222,16 +254,15 @@ textarea:focus, input:focus{
 }
 
 #box {
-  margin-top: 1%;
   width: 100%;
-  height: 20%;
   text-align: center;
-  font-size: 400%;
-  position: relative;
+  font-size: 350%;
+  visibility: hidden;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #result {
   border: 4px solid black;
-  visibility: hidden;
-  padding: 0 5% 0 5%;
 }
