@@ -34,6 +34,7 @@ function choiceAdder() {
       //content.html(text); //se si mette span
     });
     element.appendTo(list);
+    list.scrollTop = list.scrollHeight;
     //element.on("click", element, deleter(text, choices, counter)); //Non funziona
     element.on("click", element, function() {
       var index = choices.indexOf(text);
@@ -49,7 +50,21 @@ function choiceAdder() {
 
 function showConfirm() {
   var confirm = $('#confirm');
+  //var moving = $(":animated").length;
+  //if (!moving) confirm.fadeIn(500).delay(700).fadeOut(500);
+  confirm.clearQueue();
+  confirm.stop();
   confirm.fadeIn(500).delay(700).fadeOut(500);
+}
+
+var functionIsRunning = false;
+
+function myFunction() {
+    if (!functionIsRunning) {
+        functionIsRunning = true;
+        //do stuff
+        functionIsRunning = false;
+    }
 }
 
 //Non vede overflow
