@@ -5,13 +5,15 @@ var counter = 0;
 
 function randomizer(array) {
   var newChoice = array[Math.floor(Math.random()*array.length)];
-  //array.length > 0 ? $("#result").text(newChoice) : $("#result").text("You have no options to choose from!");
+  var result = $("#result");
+  var noOptions = $("#no_options");
+  result.fadeOut(0);
+  result.clearQueue().stop();
   if (array.length > 0) {
-    $("#result").fadeOut(0).text(newChoice).fadeIn(600);
+    result.text(newChoice).fadeIn(600);
   } else {
-    ("#result").fadeOut(0).text("You have no options to choose from!").fadeIn(600).delay(1000).fadeOut(600).text("Your choice is...").delay(500).fadeIn(300);
+    result.text("You have no options to choose from!").fadeIn(600).delay(1000).fadeOut(600, function() {result.text("Your choice is...").delay(200).fadeIn(600)});
   }
-  //$("#box").fadeOut(0).fadeIn(500);//css("visibility", "visible")
 }
 
 function choiceAdder() {
@@ -26,7 +28,7 @@ function choiceAdder() {
     //var content = $("<span />", {html: choices[counter]}); //se si mette span
     element.appendTo(list);
     //element.append(content); //se si mette span
-    showConfirm();
+    showConfirm("Choice added");
     element.hover(function() {
       element.html('DELETE?');
       //content.html('DELETE?'); //se si mette span
@@ -38,6 +40,7 @@ function choiceAdder() {
     //element.on("click", element, deleter(text, choices, counter)); //Non funziona
     element.on("click", element, function() {
       var index = choices.indexOf(text);
+      showConfirm("Choice removed");
       choices.splice(index, 1);
       console.log(choices);
       counter--;
@@ -48,23 +51,55 @@ function choiceAdder() {
   choice.value = "";
 }
 
-function showConfirm() {
+function showConfirm(text) {
   var confirm = $('#confirm');
-  confirm.clearQueue();
-  confirm.stop();
-  confirm.fadeIn(500).delay(700).fadeOut(500);
+
+  confirm.clearQueue().stop()
+  confirm.fadeOut(0);
+  confirm.text(text).fadeIn(500).delay(1000).fadeOut(500);
 }
 
-var functionIsRunning = false;
-
-function myFunction() {
-    if (!functionIsRunning) {
-        functionIsRunning = true;
-        //do stuff
-        functionIsRunning = false;
-    }
+function fullAnimationOpen() {
+  var slider = $("#slider"),
+    secondPage = $("#second_page");
+  secondPage.animate({"margin-right": 0}, 2000);
+  slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_ccw").animate({"margin-right": "91%"}, 1800, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
 }
 
+function fullAnimationClose() {
+  var slider = $("#slider"),
+    secondPage = $("#second_page");
+  secondPage.animate({"margin-right": "-100%"}, 2000);
+  slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_cw").animate({"margin-right": "1%"}, {duration: 1800, queue: false}).addClass("spinner_ccw").css("transform", "");
+}
+
+function partialAnimationOpen() {
+  var slider = $("#slider"),
+    secondPage = $("#second_page");
+  secondPage.animate({"margin-right": 0}, 2000, function() {$('#choice').focus();});
+  slider.removeClass("spinner_ccw").addClass("spinner_cw").css("transform", "rotate(180deg)");
+}
+
+function partialAnimationClose() {
+  var slider = $("#slider"),
+    secondPage = $("#second_page");
+  secondPage.animate({"margin-right": "-100%"}, 2000);
+  slider.removeClass("spinner_cw").animate({"margin-right": "1%"}, {duration: 1800, queue: false}).addClass("spinner_ccw").css("transform", "");
+}
+
+window.addEventListener("resize", function() {
+  if ($(window).width() <= 1300) {
+    $("#first_column").css("margin", "1% 20% 1% 20%");
+    $("#second_column").css("margin", "1% 20% 1% 20%");
+    $("#third_column").css("margin", "1% 20% 1% 20%");
+    $("body").css("font-size", "120%");
+  } else {
+    $("#first_column").css("margin", "1%");
+    $("#second_column").css("margin", "1%");
+    $("#third_column").css("margin", "1%");
+    $("body").css("font-size", "100%");
+  }
+})
 //Non funziona in funzione
 function deleter(t, a, c) {
   var index = a.indexOf(t);
