@@ -9,8 +9,17 @@
   </head>
   <body>
     <script>
+
       $(document).ready(function () {
         $("#confirm").fadeOut(0);
+        $("#no_options").fadeOut(0);
+        console.log($(window).width());
+        if ($(window).width() <= 1300) {
+          $("#first_column").css("margin", "1% 20% 1% 20%");
+          $("#second_column").css("margin", "1% 20% 1% 20%");
+          $("#third_column").css("margin", "1% 20% 1% 20%");
+          $("body").css("font-size", "120%");
+        }
       });
     </script>
     <div id="container">
@@ -23,23 +32,29 @@
       </div>
       <img src="slider.png" id="slider"/>
       <script>$(document).ready(function () {
-        var expanded = false;
-        var slider = $("#slider"),
+        var expanded = false,
+          slider = $("#slider"),
           secondPage = $("#second_page");
-        slider.on('mouseenter', function(){
-          //var div = $(this);
-          slider.animate({"width": "8%"}, {duration: 300, queue: false});
-        }).on('mouseleave', function(){
-            //var div = $(this);
+        if ($(window).width() > 1000) {
+          slider.on('mouseenter', function(){
+            slider.animate({"width": "8%"}, {duration: 300, queue: false});
+          }).on('mouseleave', function(){
             slider.animate({width: "6%"}, {duration: 300, queue: false});
-        });
+          });
+        }
         slider.click(function () {
-          if (expanded = !expanded) {
-            secondPage.animate({"margin-right": 0}, 2000);
-            slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_ccw").animate({"margin-right": "91%"}, 1800, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
+          if ($(window).width() > 950) {
+            if (expanded = !expanded) {
+              fullAnimationOpen();
+            } else {
+              fullAnimationClose();
+            }
           } else {
-            secondPage.animate({"margin-right": "-100%"}, 2000);
-            slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_cw").animate({"margin-right": "1%"}, {duration: 1800, queue: false}).addClass("spinner_ccw").css("transform", "");
+            if (expanded = !expanded) {
+              partialAnimationOpen();
+            } else {
+              partialAnimationClose();
+            }
           }
         });
       });
@@ -66,7 +81,7 @@
         </div>
         <div id="third_column">
           <div id="list_of_choices"></div>
-          <div id="confirm_div"><span id="confirm">Choice added</span></div>
+          <div id="confirm_div"><span id="confirm"></span></div>
         </div>
         <div id="result_row">
           <div class="button_div" id="result_button"><input class="fixed_button" type="button" value="CHOOSE!" onclick="randomizer(choices)"></div>
