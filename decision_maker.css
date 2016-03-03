@@ -56,13 +56,12 @@ textarea:focus, input:focus{
   float: left;
   position: absolute;
   font-size: 800%;
-  padding-top: -100%;
   z-index: 999;
 }
 
-@keyframes spin_cw{
-  from {-webkit-transform:rotate(0deg);}
-  to {-webkit-transform:rotate(180deg);}
+@keyframes spin_cw {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(180deg);}
 }
 
 .spinner_cw {
@@ -70,9 +69,9 @@ textarea:focus, input:focus{
   animation-duration: 2.3s;
 }
 
-@keyframes spin_ccw{
-  from {-webkit-transform:rotate(180deg);}
-  to {-webkit-transform:rotate(0deg);}
+@keyframes spin_ccw {
+  from {transform: rotate(180deg);}
+  to {transform: rotate(0deg);}
 }
 
 .spinner_ccw {
@@ -112,7 +111,6 @@ textarea:focus, input:focus{
   margin-top: 2%;
   margin-bottom: 4%;
   font-size: 200%;
-  border: 2px solid black;
 }
 
 
@@ -120,7 +118,6 @@ textarea:focus, input:focus{
   font-size: 150%;
   width: 30%;
   min-width: 500px;
-  border: 2px solid black;
   text-align: justify;
 }
 
@@ -128,7 +125,6 @@ textarea:focus, input:focus{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 2px solid black;
   width: 30%;
   min-width: 500px;
 }
@@ -137,7 +133,6 @@ textarea:focus, input:focus{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 2px solid black;
   width: 30%;
   min-width: 500px;
   padding: 0;
@@ -149,7 +144,6 @@ textarea:focus, input:focus{
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-between;
-  border: 2px solid black;
   width: 94%;
   min-width: 700px;
   padding: 0;
@@ -157,7 +151,6 @@ textarea:focus, input:focus{
 
 #choice_div {
   text-align: center;
-  border: 2px solid black;
   width: 100%;
 }
 
@@ -201,7 +194,6 @@ textarea:focus, input:focus{
   display: block;
   min-height: 60px;
   text-align: center;
-  border: 2px solid black;
   padding: 0;
 }
 
@@ -218,9 +210,16 @@ textarea:focus, input:focus{
   align-content: flex-start;
   overflow-y: scroll;
   height: 180px;
-  border: 2px solid black;
   width: 100%;
 }
+
+/*#list_of_choices::-webkit-scrollbar {
+    display: none;
+}
+
+#list_of_choices:hover::-webkit-scrollbar {
+  display: inherit;
+}*/
 
 .remove_button {
   display: inline-block;
