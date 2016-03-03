@@ -3,32 +3,41 @@
   <head>
     <title>Decision Maker</title>
     <link rel="stylesheet" type="text/css" href="decision_maker.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
     <script src="decision_maker.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Kristi|Shadows+Into+Light' rel='stylesheet' type='text/css'>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
   </head>
   <body>
     <script>
-
       $(document).ready(function () {
         $("#confirm").fadeOut(0);
         $("#no_options").fadeOut(0);
         console.log($(window).width());
         if ($(window).width() <= 1300) {
-          $("#first_column").css("margin", "1% 20% 1% 20%");
-          $("#second_column").css("margin", "1% 20% 1% 20%");
-          $("#third_column").css("margin", "1% 20% 1% 20%");
           $("body").css("font-size", "120%");
+          $("#quote").css("font-size", "3.5vw");
+          $("#quote").css("left", "55%");
+          $("#description_row").css("font-size", "210%");
+          $("#first_column").css("width", "80%");
+          $("#second_column").css("width", "80%");
+          $("#third_column").css("width", "80%");
+          $(".remove_button").css("width", "29%");
+          $("#result_button").css("width", "80%");
+          $("#wrapper").css("width", "80%");
+          $("#wrapper").css("font-size", "250%");
+          if ($(window).width() <= 1000) {
+            $("#quote").css("font-size", "4.5vw");
+            $("#quote").css("left", "45%");
+            $("#first_column").css("font-size", "170%");
+          }
         }
       });
     </script>
     <div id="container">
-      <div id="banner">
-        <div id="title">THE DECISION MAKER</div>
-        <div id="quote">
-        "Choice. The problem is choice."<br/>
-        <i>- Neo, The Matrix Reloaded</i>
-        </div>
+      <div id="title">THE DECISION MAKER</div>
+      <div id="quote">
+      "Choice. The problem is choice."<br/>
+      <i>- Neo, The Matrix Reloaded</i>
       </div>
       <img src="slider.png" id="slider"/>
       <script>$(document).ready(function () {
@@ -65,9 +74,9 @@
           Let this tool help you choose.</span>
         </div>
         <div id="first_column">
-          <span>Write your options in the box, one at a time, and press "ADD ME" or Enter.<br/>
+          <span><i>Write your options in the box, one at a time, and press "ADD ME" or Enter.<br/>
           If you wish, you can remove them by clicking on the corresponding button.<br/>
-          When you are ready, let the DECISION MAKER choose for you!</span>
+          When you are ready, let the DECISION MAKER choose for you!</i></span>
         </div>
         <div id="second_column">
           <div id="choice_div"><input id="choice" type="text" name="choices" placeholder="Your choice"/></div>
