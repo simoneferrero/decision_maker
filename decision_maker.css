@@ -99,7 +99,7 @@ textarea:focus, input:focus{
 
 #description_row {
   width: 80%;
-  min-width: 700px;
+  min-width: 400px;
   text-align: center;
   margin: 0 auto;
   margin-top: 2%;
@@ -114,7 +114,7 @@ textarea:focus, input:focus{
 #first_column {
   font-size: 150%;
   width: 30%;
-  min-width: 500px;
+  min-width: 400px;
   text-align: justify;
   padding-bottom: 1%;
   margin: 1%;
@@ -126,7 +126,7 @@ textarea:focus, input:focus{
   flex-wrap: wrap;
   justify-content: center;
   width: 30%;
-  min-width: 500px;
+  min-width: 400px;
   max-height: 30%;
   padding-bottom: 1%;
   margin: 1%;
@@ -137,7 +137,7 @@ textarea:focus, input:focus{
   flex-wrap: wrap;
   justify-content: center;
   width: 30%;
-  min-width: 500px;
+  min-width: 400px;
   padding: 0;
   margin: 0;
   margin: 1%;
@@ -146,12 +146,12 @@ textarea:focus, input:focus{
 }
 
 #result_row {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-between;
   width: 94%;
-  min-width: 700px;
+  min-width: 400px;
   padding-bottom: 1%;
   margin: 1%;
 }
@@ -159,6 +159,7 @@ textarea:focus, input:focus{
 #choice_div {
   text-align: center;
   width: 100%;
+  margin-bottom: 2%;
 }
 
 #choice {
@@ -256,28 +257,32 @@ textarea:focus, input:focus{
 }
 
 #result_button {
-  min-width: 500px;
+  min-width: 400px;
   width: 30%;
+  height: 100px;
   font-size: 60%;
-  margin: 0 auto;
   font-size: 150%;
+  border: 2px solid black;
+  margin: 0 1% 2% 1%;
+
 }
 
 #result_button input {
   padding: 0 20% 0 20%;
+  height: 100%;
+}
+
+#wrapper {
+  width: 63%;
+  min-width: 400px;
+  text-align: center;
+  font-size: 350%;
+  margin: 0 1% 2% 1%;
 }
 
 #box {
-  width: 100%;
-  text-align: center;
-  font-size: 350%;
-  visibility: hidden;
-  padding: 0;
-  white-space: nowrap;
   overflow: hidden;
-}
-
-#result {
   border: 4px solid black;
   padding: 0 2% 0 2%;
+  height: 96px;
 }
