@@ -24,6 +24,9 @@ function choiceAdder() {
     choices.push(choice.value);
     var text = choices[counter];
     var element = $("<button />", {class: "remove_button", html: text});
+    if ($(window).width() <= 1300) {
+      element.css("width", "29%");
+    }
     //var element = $("<button />", {class: "remove_button"}); //se si mette span
     //var content = $("<span />", {html: choices[counter]}); //se si mette span
     element.appendTo(list);
@@ -45,6 +48,7 @@ function choiceAdder() {
       console.log(choices);
       counter--;
       $(this).remove();
+      choice.focus();
     });
     counter++;
   }
@@ -62,42 +66,60 @@ function showConfirm(text) {
 function fullAnimationOpen() {
   var slider = $("#slider"),
     secondPage = $("#second_page");
-  secondPage.animate({"margin-right": 0}, 2000);
-  slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_ccw").animate({"margin-right": "91%"}, 1800, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
+  secondPage.animate({"margin-right": 0}, {duration: 2000, queue: false});
+  slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_ccw").animate({"margin-right": "90%"}, 1800, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
 }
 
 function fullAnimationClose() {
   var slider = $("#slider"),
     secondPage = $("#second_page");
-  secondPage.animate({"margin-right": "-100%"}, 2000);
+  secondPage.animate({"margin-right": "-100%"}, {duration: 2000, queue: false});
   slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_cw").animate({"margin-right": "1%"}, {duration: 1800, queue: false}).addClass("spinner_ccw").css("transform", "");
 }
 
 function partialAnimationOpen() {
   var slider = $("#slider"),
-    secondPage = $("#second_page");
-  secondPage.animate({"margin-right": 0}, 2000, function() {$('#choice').focus();});
+  secondPage = $("#second_page");
+  secondPage.animate({"margin-right": 0}, {duration: 2000, queue: false}, function() {$('#choice').focus();});
   slider.removeClass("spinner_ccw").addClass("spinner_cw").css("transform", "rotate(180deg)");
 }
 
 function partialAnimationClose() {
   var slider = $("#slider"),
     secondPage = $("#second_page");
-  secondPage.animate({"margin-right": "-100%"}, 2000);
+  secondPage.animate({"margin-right": "-100%"}, {duration: 2000, queue: false});
   slider.removeClass("spinner_cw").animate({"margin-right": "1%"}, {duration: 1800, queue: false}).addClass("spinner_ccw").css("transform", "");
 }
 
 window.addEventListener("resize", function() {
   if ($(window).width() <= 1300) {
-    $("#first_column").css("margin", "1% 20% 1% 20%");
-    $("#second_column").css("margin", "1% 20% 1% 20%");
-    $("#third_column").css("margin", "1% 20% 1% 20%");
     $("body").css("font-size", "120%");
+    $("#quote").css("font-size", "3.5vw");
+    $("#quote").css("left", "55%");
+    $("#description_row").css("font-size", "210%");
+    $("#first_column").css("width", "80%");
+    $("#second_column").css("width", "80%");
+    $("#third_column").css("width", "80%");
+    $(".remove_button").css("width", "29%");
+    $("#result_button").css("width", "80%");
+    $("#wrapper").css("width", "80%");
+    $("#wrapper").css("font-size", "250%");
+    if ($(window).width() <= 1000) {
+      $("#quote").css("font-size", "4.5vw");
+      $("#quote").css("left", "45%");
+      $("#first_column").css("font-size", "170%");
+    }
   } else {
-    $("#first_column").css("margin", "1%");
-    $("#second_column").css("margin", "1%");
-    $("#third_column").css("margin", "1%");
+    $("#description_row").css("font-size", "200%");
+    $("#first_column").css("width", "30%");
+    $("#first_column").css("font-size", "150%");
+    $("#second_column").css("width", "30%");
+    $("#third_column").css("width", "30%");
+    $(".remove_button").css("width", "46%");
     $("body").css("font-size", "100%");
+    $("#result_button").css("width", "30%");
+    $("#wrapper").css("width", "61%");
+    $("#wrapper").css("font-size", "350%");
   }
 })
 //Non funziona in funzione
