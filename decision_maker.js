@@ -17,15 +17,16 @@ function randomizer(array) {
 function choiceAdder() {
   var choice = $("#choice")[0];
   var list = $("#list_of_choices")[0];
+  choice.focus();
   if (choice.value != "") {
     choices.push(choice.value);
-    showConfirm();
     var text = choices[counter];
     var element = $("<button />", {class: "remove_button", html: text});
     //var element = $("<button />", {class: "remove_button"}); //se si mette span
     //var content = $("<span />", {html: choices[counter]}); //se si mette span
+    element.appendTo(list);
     //element.append(content); //se si mette span
-    //adjustHeights(element);
+    showConfirm();
     element.hover(function() {
       element.html('DELETE?');
       //content.html('DELETE?'); //se si mette span
@@ -33,7 +34,6 @@ function choiceAdder() {
       element.html(text);
       //content.html(text); //se si mette span
     });
-    element.appendTo(list);
     list.scrollTop = list.scrollHeight;
     //element.on("click", element, deleter(text, choices, counter)); //Non funziona
     element.on("click", element, function() {
@@ -50,8 +50,6 @@ function choiceAdder() {
 
 function showConfirm() {
   var confirm = $('#confirm');
-  //var moving = $(":animated").length;
-  //if (!moving) confirm.fadeIn(500).delay(700).fadeOut(500);
   confirm.clearQueue();
   confirm.stop();
   confirm.fadeIn(500).delay(700).fadeOut(500);
@@ -67,14 +65,6 @@ function myFunction() {
     }
 }
 
-//Non vede overflow
-function adjustHeights(elem) {
-   if (elem.clientHeight < elem.scrollHeight || elem.clientWidth < elem.scrollWidth) {
-     console.log("this element is overflowing !!");
-   } else {
-     console.log("this element is not overflowing!!");
-   }
- }
 //Non funziona in funzione
 function deleter(t, a, c) {
   var index = a.indexOf(t);
