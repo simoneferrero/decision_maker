@@ -149,7 +149,6 @@ textarea:focus, input:focus{
   padding: 0;
   margin: 0;
   margin: 1%;
-  border: 2px solid black;
   max-height: 35%;
   min-height: 250px;
 }
@@ -237,14 +236,12 @@ textarea:focus, input:focus{
   height: 20%;
   text-align: center;
   padding: 0;
-  border: 2px solid black;
 }
 
 #confirm {
   font-size: 195%;
   width: 100%;
   padding: 0;
-  border: 2px solid black;
 }
 
 .remove_button {
@@ -272,7 +269,6 @@ textarea:focus, input:focus{
   height: 94px;
   font-size: 60%;
   font-size: 150%;
-  border: 2px solid black;
   margin: 0 1.5% 4% 1.5%;
 
 }
