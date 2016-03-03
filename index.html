@@ -3,44 +3,67 @@
   <head>
     <title>Decision Maker</title>
     <link rel="stylesheet" type="text/css" href="decision_maker.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
     <script src="decision_maker.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Kristi|Shadows+Into+Light' rel='stylesheet' type='text/css'>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
   </head>
   <body>
     <script>
       $(document).ready(function () {
         $("#confirm").fadeOut(0);
-        $("#box").fadeOut(0);
+        $("#no_options").fadeOut(0);
+        console.log($(window).width());
+        if ($(window).width() <= 1300) {
+          $("body").css("font-size", "120%");
+          $("#quote").css("font-size", "3.5vw");
+          $("#quote").css("left", "55%");
+          $("#description_row").css("font-size", "210%");
+          $("#first_column").css("width", "80%");
+          $("#second_column").css("width", "80%");
+          $("#third_column").css("width", "80%");
+          $(".remove_button").css("width", "29%");
+          $("#result_button").css("width", "80%");
+          $("#wrapper").css("width", "80%");
+          $("#wrapper").css("font-size", "250%");
+          if ($(window).width() <= 1000) {
+            $("#quote").css("font-size", "4.5vw");
+            $("#quote").css("left", "45%");
+            $("#first_column").css("font-size", "170%");
+          }
+        }
       });
     </script>
     <div id="container">
-      <div id="banner">
-        <div id="title">THE DECISION MAKER</div>
-        <div id="quote">
-        "Choice. The problem is choice."<br/>
-        <i>- Neo, The Matrix Reloaded</i>
-        </div>
+      <div id="title">THE DECISION MAKER</div>
+      <div id="quote">
+      "Choice. The problem is choice."<br/>
+      <i>- Neo, The Matrix Reloaded</i>
       </div>
       <img src="slider.png" id="slider"/>
       <script>$(document).ready(function () {
-        var expanded = false;
-        var slider = $("#slider"),
+        var expanded = false,
+          slider = $("#slider"),
           secondPage = $("#second_page");
-        slider.on('mouseenter', function(){
-          //var div = $(this);
-          slider.animate({"width": "8%"}, {duration: 300, queue: false});
-        }).on('mouseleave', function(){
-            //var div = $(this);
+        if ($(window).width() > 1000) {
+          slider.on('mouseenter', function(){
+            slider.animate({"width": "8%"}, {duration: 300, queue: false});
+          }).on('mouseleave', function(){
             slider.animate({width: "6%"}, {duration: 300, queue: false});
-        });
+          });
+        }
         slider.click(function () {
-          if (expanded = !expanded) {
-            secondPage.animate({"margin-right": 0}, 2000);
-            slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_ccw").animate({"margin-right": "91%"}, 1800, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
+          if ($(window).width() > 950) {
+            if (expanded = !expanded) {
+              fullAnimationOpen();
+            } else {
+              fullAnimationClose();
+            }
           } else {
-            secondPage.animate({"margin-right": "-100%"}, 2000);
-            slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_cw").animate({"margin-right": "1%"}, {duration: 1800, queue: false}).addClass("spinner_ccw").css("transform", "");
+            if (expanded = !expanded) {
+              partialAnimationOpen();
+            } else {
+              partialAnimationClose();
+            }
           }
         });
       });
@@ -51,9 +74,9 @@
           Let this tool help you choose.</span>
         </div>
         <div id="first_column">
-          <span>Write your options in the box, one at a time, and press "ADD ME" or Enter.<br/>
+          <span><i>Write your options in the box, one at a time, and press "ADD ME" or Enter.<br/>
           If you wish, you can remove them by clicking on the corresponding button.<br/>
-          When you are ready, let the DECISION MAKER choose for you!</span>
+          When you are ready, let the DECISION MAKER choose for you!</i></span>
         </div>
         <div id="second_column">
           <div id="choice_div"><input id="choice" type="text" name="choices" placeholder="Your choice"/></div>
@@ -67,11 +90,11 @@
         </div>
         <div id="third_column">
           <div id="list_of_choices"></div>
-          <div id="confirm_div"><span id="confirm">Choice added</span></div>
+          <div id="confirm_div"><span id="confirm"></span></div>
         </div>
         <div id="result_row">
           <div class="button_div" id="result_button"><input class="fixed_button" type="button" value="CHOOSE!" onclick="randomizer(choices)"></div>
-          <div id="wrapper"><div id="box"><span id="result"></span></div></div>
+          <div id="wrapper"><div id="box"><span id="result">Your choice is...</span></div></div>
         </div>
       </div>
     </div>
