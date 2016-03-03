@@ -97,12 +97,6 @@ textarea:focus, input:focus{
   overflow-x: hidden;
 }
 
-#second_page div {
-  padding-top: 1%;
-  padding-bottom: 1%;
-  margin: 1%;
-}
-
 #description_row {
   width: 80%;
   min-width: 700px;
@@ -111,6 +105,9 @@ textarea:focus, input:focus{
   margin-top: 2%;
   margin-bottom: 4%;
   font-size: 200%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin: 1%;
 }
 
 
@@ -119,6 +116,9 @@ textarea:focus, input:focus{
   width: 30%;
   min-width: 500px;
   text-align: justify;
+  padding-bottom: 1%;
+  margin: 1%;
+  max-height: 30%;
 }
 
 #second_column {
@@ -127,6 +127,9 @@ textarea:focus, input:focus{
   justify-content: center;
   width: 30%;
   min-width: 500px;
+  max-height: 30%;
+  padding-bottom: 1%;
+  margin: 1%;
 }
 
 #third_column {
@@ -137,6 +140,9 @@ textarea:focus, input:focus{
   min-width: 500px;
   padding: 0;
   margin: 0;
+  margin: 1%;
+  border: 2px solid black;
+  max-height: 30%;
 }
 
 #result_row {
@@ -146,7 +152,8 @@ textarea:focus, input:focus{
   align-content: space-between;
   width: 94%;
   min-width: 700px;
-  padding: 0;
+  padding-bottom: 1%;
+  margin: 1%;
 }
 
 #choice_div {
@@ -185,22 +192,7 @@ textarea:focus, input:focus{
 }
 
 .fixed_button:hover {
-  background-color: transparent;
-  color: rgb(0, 0, 0);
-  border: 4px solid rgb(0, 0, 0);
-}
-
-#confirm_div {
-  display: block;
-  min-height: 60px;
-  text-align: center;
-  padding: 0;
-}
-
-#confirm {
-  font-size: 230%;
-  width: 100%;
-  padding: 0;
+  background-color: rgb(170, 170, 170);
 }
 
 #list_of_choices {
@@ -208,18 +200,41 @@ textarea:focus, input:focus{
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 180px;
   width: 100%;
 }
 
-/*#list_of_choices::-webkit-scrollbar {
-    display: none;
+#list_of_choices::-webkit-scrollbar {
+  width: 3%;
 }
 
-#list_of_choices:hover::-webkit-scrollbar {
-  display: inherit;
-}*/
+#list_of_choices::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255);
+}
+
+#list_of_choices::-webkit-scrollbar-thumb {
+  background-color: rgb(135, 135, 135);
+}
+
+#list_of_choices::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(170, 170, 170);
+}
+
+#confirm_div {
+  min-height: 50px;
+  height: 20%;
+  text-align: center;
+  padding: 0;
+  border: 2px solid black;
+}
+
+#confirm {
+  font-size: 195%;
+  width: 100%;
+  padding: 0;
+  border: 2px solid black;
+}
 
 .remove_button {
   display: inline-block;
@@ -229,7 +244,6 @@ textarea:focus, input:focus{
   font-family: 'Shadows Into Light', cursive;
   font-size: 180%;
   width: 46%;
-  max-width: 46%;
   max-height: 50px;
   text-align: center;
   margin: 2%;
