@@ -24,13 +24,22 @@
       <img src="slider.png" id="slider"/>
       <script>$(document).ready(function () {
         var expanded = false;
-        $("#slider").click(function () {
+        var slider = $("#slider"),
+          secondPage = $("#second_page");
+        slider.on('mouseenter', function(){
+          //var div = $(this);
+          slider.animate({"width": "8%"}, {duration: 300, queue: false});
+        }).on('mouseleave', function(){
+            //var div = $(this);
+            slider.animate({width: "6%"}, {duration: 300, queue: false});
+        });
+        slider.click(function () {
           if (expanded = !expanded) {
-            $("#second_page").animate({"margin-right": 0}, 2000);
-            $("#slider").removeClass("spinner_ccw").animate({"margin-right": "93%"}, 2000, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
+            secondPage.animate({"margin-right": 0}, 2000);
+            slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_ccw").animate({"margin-right": "91%"}, 1800, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
           } else {
-            $("#second_page").animate({"margin-right": "-100%"}, 2000);
-            $("#slider").removeClass("spinner_cw").animate({"margin-right": "1%"}, 2000).addClass("spinner_ccw").css("transform", "");
+            secondPage.animate({"margin-right": "-100%"}, 2000);
+            slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_cw").animate({"margin-right": "1%"}, {duration: 1800, queue: false}).addClass("spinner_ccw").css("transform", "");
           }
         });
       });
@@ -56,8 +65,8 @@
           <div class="button_div"><input class="fixed_button" id="add_button" type="button" value="ADD ME" onclick="choiceAdder()"></div>
         </div>
         <div id="third_column">
-          <div id="confirm_div"><span id="confirm">Choice added</span></div>
           <div id="list_of_choices"></div>
+          <div id="confirm_div"><span id="confirm">Choice added</span></div>
         </div>
         <div id="result_row">
           <div class="button_div" id="result_button"><input class="fixed_button" type="button" value="CHOOSE!" onclick="randomizer(choices)"></div>
