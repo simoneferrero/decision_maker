@@ -11,6 +11,7 @@
     <script>
       $(document).ready(function () {
         $("#confirm").fadeOut(0);
+        $("#box").fadeOut(0);
       });
     </script>
     <div id="container">
@@ -50,7 +51,7 @@
           Let this tool help you choose.</span>
         </div>
         <div id="first_column">
-          <span>Write your options in the box, one at a time, and press "ADD ME"!<br/>
+          <span>Write your options in the box, one at a time, and press "ADD ME" or Enter.<br/>
           If you wish, you can remove them by clicking on the corresponding button.<br/>
           When you are ready, let the DECISION MAKER choose for you!</span>
         </div>
@@ -70,7 +71,7 @@
         </div>
         <div id="result_row">
           <div class="button_div" id="result_button"><input class="fixed_button" type="button" value="CHOOSE!" onclick="randomizer(choices)"></div>
-          <div id="box"><span id="result"></span></div>
+          <div id="wrapper"><div id="box"><span id="result"></span></div></div>
         </div>
       </div>
     </div>
