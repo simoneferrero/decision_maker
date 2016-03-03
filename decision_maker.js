@@ -5,8 +5,13 @@ var counter = 0;
 
 function randomizer(array) {
   var newChoice = array[Math.floor(Math.random()*array.length)];
-  array.length > 0 ? $("#result").text(newChoice) : $("#result").text("You have no options to choose from!");
-  $("#box").fadeOut(0).fadeIn(500);//css("visibility", "visible")
+  //array.length > 0 ? $("#result").text(newChoice) : $("#result").text("You have no options to choose from!");
+  if (array.length > 0) {
+    $("#result").fadeOut(0).text(newChoice).fadeIn(600);
+  } else {
+    ("#result").fadeOut(0).text("You have no options to choose from!").fadeIn(600).delay(1000).fadeOut(600).text("Your choice is...").delay(500).fadeIn(300);
+  }
+  //$("#box").fadeOut(0).fadeIn(500);//css("visibility", "visible")
 }
 
 function choiceAdder() {
