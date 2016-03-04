@@ -10,9 +10,14 @@ function randomizer(array) {
   result.fadeOut(0);
   result.clearQueue().stop();
   if (array.length > 0) {
-    result.text(newChoice).fadeIn(600);
+    result.text(newChoice);
+    result.fadeIn(600);
   } else {
-    result.text("You have no options to choose from!").fadeIn(600).delay(1000).fadeOut(600, function() {result.text("Your choice is...").delay(200).fadeIn(600)});
+    if ($(window).width() >= 850) {
+      result.text("You have no options to choose from!").fadeIn(600).delay(1000).fadeOut(600, function() {result.text("Your choice is...").delay(200).fadeIn(600)});
+    } else {
+      result.text("You have no options to choose from!").css("font-size", "75%").fadeIn(600).delay(1000).fadeOut(600, function() {result.text("Your choice is...").css("font-size", "100%").delay(200).fadeIn(600)});
+    }
   }
 }
 
@@ -23,22 +28,22 @@ function choiceAdder() {
   if (choice.value != "") {
     choices.push(choice.value);
     var text = choices[counter];
-    var element = $("<button />", {class: "remove_button", html: text});
+    var element = $("<button />", {class: "remove_button", html: text}); //se non si mette span
+    //var element = $("<button />", {class: "remove_button"}); //se si mette span
     if ($(window).width() <= 1300) {
       element.css("width", "29%");
       element.css("font-size", "160%");
       element.css("max-height", "60px");
     }
-    //var element = $("<button />", {class: "remove_button"}); //se si mette span
     //var content = $("<span />", {html: choices[counter]}); //se si mette span
     element.appendTo(list);
     //element.append(content); //se si mette span
     showConfirm("Choice added");
     element.hover(function() {
-      element.html('DELETE?');
+      element.html('DELETE?'); //se non si mette span
       //content.html('DELETE?'); //se si mette span
     }, function() {
-      element.html(text);
+      element.html(text); //se non si mette span
       //content.html(text); //se si mette span
     });
     list.scrollTop = list.scrollHeight;
@@ -130,23 +135,6 @@ window.addEventListener("resize", function() {
   }
 })
 
-$.fn.textfill = function(options) {
-  var fontSize = options.maxFontPixels;
-  var ourText = $('span:visible:first', this);
-  var maxHeight = $(this).height();
-  var maxWidth = $(this).width();
-  var textHeight;
-  var textWidth;
-  do {
-    ourText.css('font-size', fontSize);
-    textHeight = ourText.height();
-    textWidth = ourText.width();
-    fontSize = fontSize - 1;
-  } while ((textHeight > maxHeight || textWidth > maxWidth) && fontSize > 3);
-  return this;
-}
-
-$('.jtextfill').textfill({ maxFontPixels: 36 });
 //Non funziona in funzione
 function deleter(t, a, c) {
   var index = a.indexOf(t);
