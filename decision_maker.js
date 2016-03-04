@@ -1,8 +1,7 @@
 'use strict';
 
 var choices = [],
-  counter = 0,
-  height = 0;
+  counter = 0;
 
 function randomizer(array) {
   var newChoice = array[Math.floor(Math.random()*array.length)];
@@ -24,7 +23,6 @@ function randomizer(array) {
 }
 
 function choiceAdder() {
-  //height = $("#first_column").height();
   var choice = $("#choice")[0];
   var list = $("#list_of_choices")[0];
   choice.focus();
@@ -50,7 +48,7 @@ function choiceAdder() {
       element.html(text); //se non si mette span
       //content.html(text); //se si mette span
     });
-    element.mouseenter(function() {
+    /*element.mouseenter(function() {
       $("#first_column > span").stop().clearQueue().fadeOut(1000, function() {
         $("#first_column").css("text-align", "center");
         $("#first_column > span").css("font-size", "150%").html(text).fadeIn(500)});
@@ -60,13 +58,13 @@ function choiceAdder() {
         $("#first_column > span").css("font-size", "100%").html("<i>Write your options in the box, one at a time, and press ADD ME or Enter.<br/>If you wish, you can remove them by clicking on the corresponding button.<br/>When you are ready, let the DECISION MAKER choose for you!</i>")
         .fadeIn(500);
       });
-    });
+    });*/
     list.scrollTop = list.scrollHeight;
     element.on("click", element, function() {
-      $("#first_column").css("text-align", "justify").css("vertical-align", "top");
+      /*$("#first_column").css("text-align", "justify").css("vertical-align", "top");
       $("#first_column > span").clearQueue().stop().fadeOut(0).css("font-size", "100%")
       .html("<i>Write your options in the box, one at a time, and press ADD ME or Enter.<br/>If you wish, you can remove them by clicking on the corresponding button.<br/>When you are ready, let the DECISION MAKER choose for you!</i>")
-      .css("height", "none").fadeIn(500);
+      .css("height", "none").fadeIn(500);*/
       var index = choices.indexOf(text);
       showConfirm("Choice removed");
       choices.splice(index, 1);
@@ -128,7 +126,7 @@ window.addEventListener("resize", function() {
     $("#description_row").css("font-size", "210%");
     $("#first_column").css("width", "80%");
     $("#first_column").css("font-size", "150%");
-    $("#first_column").css("min-height", "320px");
+    //$("#first_column").css("min-height", "320px");
     $("#second_column").css("width", "80%");
     $("#third_column").css("width", "80%");
     $(".remove_button").css("width", "29%");
