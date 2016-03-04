@@ -2,6 +2,7 @@
 
 var choices = [];
 var counter = 0;
+var toDelete = ""
 
 function randomizer(array) {
   var newChoice = array[Math.floor(Math.random()*array.length)];
@@ -40,15 +41,22 @@ function choiceAdder() {
     //element.append(content); //se si mette span
     showConfirm("Choice added");
     element.hover(function() {
+      $("#descr").html(text);
       element.html('DELETE?'); //se non si mette span
       //content.html('DELETE?'); //se si mette span
     }, function() {
       element.html(text); //se non si mette span
       //content.html(text); //se si mette span
     });
+    element.mouseenter(function() {
+      $("#full_content").stop().clearQueue().fadeOut(0).delay(1000).fadeIn(500);
+    }).mouseleave(function() {
+      $("#full_content").stop().clearQueue().fadeOut(500);
+    });
     list.scrollTop = list.scrollHeight;
     //element.on("click", element, deleter(text, choices, counter)); //Non funziona
     element.on("click", element, function() {
+      $("#full_content").clearQueue().stop().fadeOut(0);
       var index = choices.indexOf(text);
       showConfirm("Choice removed");
       choices.splice(index, 1);
@@ -65,14 +73,16 @@ function choiceAdder() {
 function showConfirm(text) {
   var confirm = $('#confirm');
 
-  confirm.clearQueue().stop()
+  confirm.clearQueue().stop();
   confirm.fadeOut(0);
   confirm.text(text).fadeIn(500).delay(1000).fadeOut(500);
 }
 
 function fullAnimationOpen() {
   var slider = $("#slider"),
-    secondPage = $("#second_page");
+    secondPage = $("#second_page"),
+    fullContent = $("#full_content");
+  fullContent.css("visibility", "visible").fadeOut(0);
   secondPage.animate({"margin-right": 0}, {duration: 2000, queue: false});
   slider.animate({"width": "6%"}, {duration: 300, queue: false}).removeClass("spinner_ccw").animate({"margin-right": "90%"}, 1800, function() {$('#choice').focus();}).addClass("spinner_cw").css("transform", "rotate(180deg)");
 }
@@ -86,7 +96,9 @@ function fullAnimationClose() {
 
 function partialAnimationOpen() {
   var slider = $("#slider"),
-  secondPage = $("#second_page");
+    secondPage = $("#second_page"),
+    fullContent = $("#full_content");
+  fullContent.css("visibility", "visible").fadeOut(0);
   secondPage.animate({"margin-right": 0}, 2000, function() {$('#choice').focus();});
   slider.removeClass("spinner_ccw").addClass("spinner_cw").css("transform", "rotate(180deg)");
 }
@@ -134,12 +146,3 @@ window.addEventListener("resize", function() {
     $("#wrapper").css("font-size", "350%");
   }
 })
-
-//Non funziona in funzione
-function deleter(t, a, c) {
-  var index = a.indexOf(t);
-  a.splice(index, 1);
-  console.log(a);
-  c--;
-  $(this).closest("button").remove();
-}
