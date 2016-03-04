@@ -284,12 +284,14 @@ textarea:focus, input:focus{
   text-align: center;
   margin: 0 1.5% 4% 1.5%;
   font-size: 300%;
+  height: 90px;
 }
 
 #box {
   overflow: hidden;
   border: 4px solid black;
-  padding: 0 2% 0 2%;
-  height: 90px;
+  padding: 1% 2% 0 2%;
+  height: 100%;
   font-size: 97%;
+  vertical-align: middle;
 }
