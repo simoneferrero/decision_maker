@@ -124,8 +124,11 @@ textarea:focus, input:focus{
   width: 30%;
   min-width: 400px;
   text-align: justify;
-  padding-bottom: 1%;
   margin: 1%;
+}
+
+#first_column > span {
+  display: block;
 }
 
 #second_column {
