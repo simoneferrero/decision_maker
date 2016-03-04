@@ -8,6 +8,7 @@ function randomizer(array) {
   var newChoice = array[Math.floor(Math.random()*array.length)];
   var result = $("#result");
   var noOptions = $("#no_options");
+  var isOpen = false;
   result.fadeOut(0);
   result.clearQueue().stop();
   if (array.length > 0) {
@@ -42,7 +43,7 @@ function choiceAdder() {
     showConfirm("Choice added");
     element.hover(function() {
       $("#descr").html(text);
-      element.html('DELETE?'); //se non si mette span
+      element.html("DELETE?"); //se non si mette span
       //content.html('DELETE?'); //se si mette span
     }, function() {
       element.html(text); //se non si mette span
@@ -54,7 +55,6 @@ function choiceAdder() {
       $("#full_content").stop().clearQueue().fadeOut(500);
     });
     list.scrollTop = list.scrollHeight;
-    //element.on("click", element, deleter(text, choices, counter)); //Non funziona
     element.on("click", element, function() {
       $("#full_content").clearQueue().stop().fadeOut(0);
       var index = choices.indexOf(text);
@@ -145,4 +145,4 @@ window.addEventListener("resize", function() {
     $("#wrapper").css("width", "61%");
     $("#wrapper").css("font-size", "350%");
   }
-})
+});

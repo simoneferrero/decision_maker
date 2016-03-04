@@ -10,6 +10,7 @@
   <body>
     <script>
       $(document).ready(function () {
+        $("body").on("contextmenu", ".remove_button", function() { return false; });
         $("#confirm").fadeOut(0);
         $("#no_options").fadeOut(0);
         console.log($(window).width());
