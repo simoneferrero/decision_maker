@@ -50,13 +50,23 @@ function choiceAdder() {
       //content.html(text); //se si mette span
     });
     element.mouseenter(function() {
-      $("#full_content").stop().clearQueue().fadeOut(0).delay(1000).fadeIn(500);
+      var minHeight = $("#first_column > span").height();
+      $("#first_column > span").stop().clearQueue().fadeOut(1000, function() {
+        $("#first_column").css("text-align", "center").css("min-height", minHeight);
+        $("#first_column > span").css("padding", "3%").css("font-size", "150%").html(text).fadeIn(500)});
     }).mouseleave(function() {
-      $("#full_content").stop().clearQueue().fadeOut(500);
+      $("#first_column > span").stop().clearQueue().fadeOut(500, function() {
+        $("#first_column").css("text-align", "justify").css("vertical-align", "top");
+        $("#first_column > span").css("padding", "0").css("font-size", "100%").html("<i>Write your options in the box, one at a time, and press ADD ME or Enter.<br/>If you wish, you can remove them by clicking on the corresponding button.<br/>When you are ready, let the DECISION MAKER choose for you!</i>")
+        .fadeIn(500);
+      });
     });
     list.scrollTop = list.scrollHeight;
     element.on("click", element, function() {
-      $("#full_content").clearQueue().stop().fadeOut(0);
+      $("#first_column").css("text-align", "justify").css("vertical-align", "top");
+      $("#first_column > span").clearQueue().stop().fadeOut(0).css("padding", "0").css("font-size", "100%")
+      .html("<i>Write your options in the box, one at a time, and press ADD ME or Enter.<br/>If you wish, you can remove them by clicking on the corresponding button.<br/>When you are ready, let the DECISION MAKER choose for you!</i>")
+      .fadeIn(500);
       var index = choices.indexOf(text);
       showConfirm("Choice removed");
       choices.splice(index, 1);

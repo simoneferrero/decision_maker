@@ -126,8 +126,6 @@ textarea:focus, input:focus{
   text-align: justify;
   padding-bottom: 1%;
   margin: 1%;
-  /*max-height: 35%;
-  min-height: 350px;*/
 }
 
 #second_column {
@@ -297,16 +295,12 @@ textarea:focus, input:focus{
 }
 
 #full_content {
-  position: fixed;
+  position: absolute;
   color: rgb(255, 255, 255);
   background-color: rgb(135, 135, 135);
   border: 4px solid rgb(255, 255, 255);
-  width: 73.6%;
-  left: 50%;
-  top: 10%;
-  margin-left: -40.2%;
+  width: 100%;
   z-index: 800;
-  font-size: 300%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
