@@ -26,6 +26,8 @@ function choiceAdder() {
     var element = $("<button />", {class: "remove_button", html: text});
     if ($(window).width() <= 1300) {
       element.css("width", "29%");
+      element.css("font-size", "160%");
+      element.css("max-height", "60px");
     }
     //var element = $("<button />", {class: "remove_button"}); //se si mette span
     //var content = $("<span />", {html: choices[counter]}); //se si mette span
@@ -80,7 +82,7 @@ function fullAnimationClose() {
 function partialAnimationOpen() {
   var slider = $("#slider"),
   secondPage = $("#second_page");
-  secondPage.animate({"margin-right": 0}, {duration: 2000, queue: false}, function() {$('#choice').focus();});
+  secondPage.animate({"margin-right": 0}, 2000, function() {$('#choice').focus();});
   slider.removeClass("spinner_ccw").addClass("spinner_cw").css("transform", "rotate(180deg)");
 }
 
@@ -98,9 +100,12 @@ window.addEventListener("resize", function() {
     $("#quote").css("left", "55%");
     $("#description_row").css("font-size", "210%");
     $("#first_column").css("width", "80%");
+    $("#first_column").css("font-size", "150%");
     $("#second_column").css("width", "80%");
     $("#third_column").css("width", "80%");
     $(".remove_button").css("width", "29%");
+    $(".remove_button").css("font-size", "160%");
+    $(".remove_button").css("max-height", "60px");
     $("#result_button").css("width", "80%");
     $("#wrapper").css("width", "80%");
     $("#wrapper").css("font-size", "250%");
@@ -108,20 +113,40 @@ window.addEventListener("resize", function() {
       $("#quote").css("font-size", "4.5vw");
       $("#quote").css("left", "45%");
       $("#first_column").css("font-size", "170%");
+      $(".remove_button").css("max-height", "53px");
     }
   } else {
+    $("body").css("font-size", "100%");
     $("#description_row").css("font-size", "200%");
     $("#first_column").css("width", "30%");
-    $("#first_column").css("font-size", "150%");
     $("#second_column").css("width", "30%");
     $("#third_column").css("width", "30%");
     $(".remove_button").css("width", "46%");
-    $("body").css("font-size", "100%");
+    $(".remove_button").css("font-size", "180%");
+    $(".remove_button").css("max-height", "53px");
     $("#result_button").css("width", "30%");
     $("#wrapper").css("width", "61%");
     $("#wrapper").css("font-size", "350%");
   }
 })
+
+$.fn.textfill = function(options) {
+  var fontSize = options.maxFontPixels;
+  var ourText = $('span:visible:first', this);
+  var maxHeight = $(this).height();
+  var maxWidth = $(this).width();
+  var textHeight;
+  var textWidth;
+  do {
+    ourText.css('font-size', fontSize);
+    textHeight = ourText.height();
+    textWidth = ourText.width();
+    fontSize = fontSize - 1;
+  } while ((textHeight > maxHeight || textWidth > maxWidth) && fontSize > 3);
+  return this;
+}
+
+$('.jtextfill').textfill({ maxFontPixels: 36 });
 //Non funziona in funzione
 function deleter(t, a, c) {
   var index = a.indexOf(t);
