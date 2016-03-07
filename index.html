@@ -10,27 +10,73 @@
   <body>
     <script>
       $(document).ready(function () {
-        $("body").on("contextmenu", ".remove_button", function() { return false; });
-        $("#confirm").fadeOut(0);
-        console.log($(window).width());
+        var expanded = false,
+          slider = $("#slider");
+        $("body")
+          .on("contextmenu", ".remove_button", function() {
+            return false;
+          });
+          if ($(window).width() > 1000) {
+            slider
+              .on('mouseenter', function(){
+                slider
+                  .animate({"width": "8%"}, {duration: 300, queue: false});
+              })
+              .on('mouseleave', function(){
+                slider
+                  .animate({width: "6%"}, {duration: 300, queue: false});
+              });
+          }
+          slider
+            .click(function () {
+              if ($(window).width() > 950) {
+                if (expanded = !expanded) {
+                  fullAnimationOpen();
+                } else {
+                  fullAnimationClose();
+                }
+              } else {
+                if (expanded = !expanded) {
+                  partialAnimationOpen();
+                } else {
+                  partialAnimationClose();
+                }
+              }
+            });
+        $("#confirm")
+          .fadeOut(0);
         if ($(window).width() <= 1300) {
-          $("body").css("font-size", "120%");
-          $("#quote").css("font-size", "3.5vw");
-          $("#quote").css("left", "55%");
-          $("#description_row").css("font-size", "210%");
-          $("#first_column").css("width", "80%");
-          $("#second_column").css("width", "80%");
-          $("#third_column").css("width", "80%");
-          $(".remove_button").css("width", "29%");
-          $(".remove_button").css("font-size", "170%");
-          $(".remove_button").css("max-height", "60px");
-          $("#result_button").css("width", "80%");
-          $("#wrapper").css("width", "80%");
-          $("#wrapper").css("font-size", "250%");
+          $("body")
+            .css("font-size", "120%");
+          $("#quote")
+            .css("font-size", "3.5vw")
+            .css("left", "55%");
+          $("#description_row")
+            .css("font-size", "210%");
+          $("#first_column")
+            .css("width", "80%")
+            .css("font-size", "150%");
+          $("#second_column")
+            .css("width", "80%");
+          $("#third_column")
+            .css("width", "80%");
+          $(".remove_button")
+            .css("width", "29%")
+            .css("font-size", "160%")
+            .css("max-height", "60px");
+          $("#result_button")
+            .css("width", "80%");
+          $("#wrapper")
+            .css("width", "80%")
+            .css("font-size", "250%");
           if ($(window).width() <= 1000) {
-            $("#quote").css("font-size", "4.5vw");
-            $("#quote").css("left", "45%");
-            $("#first_column").css("font-size", "170%");
+            $("#quote")
+              .css("font-size", "4.5vw")
+              .css("left", "45%");
+            $("#first_column")
+              .css("font-size", "170%");
+            $(".remove_button")
+              .css("max-height", "53px");
           }
         }
       });
@@ -42,34 +88,6 @@
       <i>- Neo, The Matrix Reloaded</i>
       </div>
       <img src="slider.png" id="slider"/>
-      <script>$(document).ready(function () {
-        var expanded = false,
-          slider = $("#slider"),
-          secondPage = $("#second_page");
-        if ($(window).width() > 1000) {
-          slider.on('mouseenter', function(){
-            slider.animate({"width": "8%"}, {duration: 300, queue: false});
-          }).on('mouseleave', function(){
-            slider.animate({width: "6%"}, {duration: 300, queue: false});
-          });
-        }
-        slider.click(function () {
-          if ($(window).width() > 950) {
-            if (expanded = !expanded) {
-              fullAnimationOpen();
-            } else {
-              fullAnimationClose();
-            }
-          } else {
-            if (expanded = !expanded) {
-              partialAnimationOpen();
-            } else {
-              partialAnimationClose();
-            }
-          }
-        });
-      });
-      </script>
       <div id="second_page">
         <div id="description_row">
           <span>Of all the decisions we have to make every day, the smallest can often be the hardest.<br/>
