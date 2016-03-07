@@ -289,6 +289,7 @@ textarea:focus, input:focus{
   -webkit-user-select: none;
   -ms-user-select: none;
   cursor: default;
+  white-space: nowrap;
 }
 
 #result_button input {
