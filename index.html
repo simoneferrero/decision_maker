@@ -19,7 +19,6 @@
           $("#quote").css("left", "55%");
           $("#description_row").css("font-size", "210%");
           $("#first_column").css("width", "80%");
-          //$("#first_column").css("min-height", "320px");
           $("#second_column").css("width", "80%");
           $("#third_column").css("width", "80%");
           $(".remove_button").css("width", "29%");
@@ -96,8 +95,7 @@
           <div id="confirm_div"><span id="confirm"></span></div>
         </div>
         <div id="result_row">
-          <div class="button_div" id="result_button"><input class="fixed_button" type="button" value="CHOOSE!" onclick="randomizer(choices)"></div>
-          <div id="wrapper"><div id="box"><span id="result">Your choice is...</span></div></div>
+          <div class="button_div fixed_button" id="result_button" onclick="randomizer(choices)"><span>CHOOSE!</span></div>
         </div>
       </div>
     </div>

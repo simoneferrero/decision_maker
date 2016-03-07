@@ -4,22 +4,32 @@ var choices = [],
   counter = 0;
 
 function randomizer(array) {
-  var newChoice = array[Math.floor(Math.random()*array.length)];
-  var result = $("#result");
-  var noOptions = $("#no_options");
-  var isOpen = false;
-  result.fadeOut(0);
-  result.clearQueue().stop();
+  var newChoice = array[Math.floor(Math.random()*array.length)],
+  result = $("#result_button > span");
+  result
+    .finish()
+    .fadeOut(0);
   if (array.length > 0) {
-    result.text(newChoice);
-    result.fadeIn(600);
+    result
+      .text(newChoice);
   } else {
-    if ($(window).width() >= 850) {
-      result.text("You have no options to choose from!").fadeIn(600).delay(1000).fadeOut(600, function() {result.text("Your choice is...").delay(200).fadeIn(600)});
-    } else {
-      result.text("You have no options to choose from!").css("font-size", "75%").fadeIn(600).delay(1000).fadeOut(600, function() {result.text("Your choice is...").css("font-size", "100%").delay(200).fadeIn(600)});
-    }
+    result
+      .text("You have no options to choose from!")
+      .css("font-size", "75%");
   }
+  result
+    .fadeIn(500, function() {
+      result
+        .delay(2000)
+        .fadeOut(500)
+        .queue(function(next) {
+          result
+            .text("CHOOSE!")
+            .css("font-size", "100%");
+            next();
+        })
+        .fadeIn(500)
+    });
 }
 
 function choiceAdder() {
@@ -32,9 +42,9 @@ function choiceAdder() {
     var element = $("<button />", {class: "remove_button", html: text}); //se non si mette span
     //var element = $("<button />", {class: "remove_button"}); //se si mette span
     if ($(window).width() <= 1300) {
-      element.css("width", "29%");
-      element.css("font-size", "160%");
-      element.css("max-height", "60px");
+      element.css("width", "29%")
+        .css("font-size", "160%")
+        .css("max-height", "60px");
     }
     //var content = $("<span />", {html: choices[counter]}); //se si mette span
     element.appendTo(list);
@@ -48,23 +58,8 @@ function choiceAdder() {
       element.html(text); //se non si mette span
       //content.html(text); //se si mette span
     });
-    /*element.mouseenter(function() {
-      $("#first_column > span").stop().clearQueue().fadeOut(1000, function() {
-        $("#first_column").css("text-align", "center");
-        $("#first_column > span").css("font-size", "150%").html(text).fadeIn(500)});
-    }).mouseleave(function() {
-      $("#first_column > span").stop().clearQueue().fadeOut(500, function() {
-        $("#first_column").css("text-align", "justify").css("vertical-align", "top");
-        $("#first_column > span").css("font-size", "100%").html("<i>Write your options in the box, one at a time, and press ADD ME or Enter.<br/>If you wish, you can remove them by clicking on the corresponding button.<br/>When you are ready, let the DECISION MAKER choose for you!</i>")
-        .fadeIn(500);
-      });
-    });*/
     list.scrollTop = list.scrollHeight;
     element.on("click", element, function() {
-      /*$("#first_column").css("text-align", "justify").css("vertical-align", "top");
-      $("#first_column > span").clearQueue().stop().fadeOut(0).css("font-size", "100%")
-      .html("<i>Write your options in the box, one at a time, and press ADD ME or Enter.<br/>If you wish, you can remove them by clicking on the corresponding button.<br/>When you are ready, let the DECISION MAKER choose for you!</i>")
-      .css("height", "none").fadeIn(500);*/
       var index = choices.indexOf(text);
       showConfirm("Choice removed");
       choices.splice(index, 1);
@@ -80,10 +75,13 @@ function choiceAdder() {
 
 function showConfirm(text) {
   var confirm = $('#confirm');
-
-  confirm.clearQueue().stop();
-  confirm.fadeOut(0);
-  confirm.text(text).fadeIn(500).delay(1000).fadeOut(500);
+  confirm
+    .finish()
+    .fadeOut(0)
+    .text(text)
+    .fadeIn(500)
+    .delay(1000)
+    .fadeOut(500);
 }
 
 function fullAnimationOpen() {
@@ -126,7 +124,6 @@ window.addEventListener("resize", function() {
     $("#description_row").css("font-size", "210%");
     $("#first_column").css("width", "80%");
     $("#first_column").css("font-size", "150%");
-    //$("#first_column").css("min-height", "320px");
     $("#second_column").css("width", "80%");
     $("#third_column").css("width", "80%");
     $(".remove_button").css("width", "29%");

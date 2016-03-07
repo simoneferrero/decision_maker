@@ -34,7 +34,10 @@ textarea:focus, input:focus{
   transform: rotate(-15deg);
   text-align: center;
   -webkit-text-stroke-width: 2px;
+  -ms-text-stroke-width: 2px;
   -webkit-text-stroke-color: rgb(0, 0, 0);
+  -ms-text-stroke-color: rgb(0, 0, 0);
+
 }
 
 #quote {
@@ -45,7 +48,9 @@ textarea:focus, input:focus{
   font-size: 3.5vw;
   text-align: right;
   -webkit-text-stroke-width: 0.6px;
+  -ms-text-stroke-width: 0.6px;
   -webkit-text-stroke-color: rgb(0, 0, 0);
+  -ms-text-stroke-color: rgb(0, 0, 0);
 }
 
 #quote i {
@@ -266,17 +271,23 @@ textarea:focus, input:focus{
 }
 
 #result_button {
+  display: block;
   min-width: 400px;
   width: 30%;
   height: 100px;
-  font-size: 60%;
-  font-size: 150%;
+  font-size: 250%;
   margin: 0 1% 4% 1%;
+  padding: 3% 1% 1% 1%;
+  align-content: center;
+  vertical-align: center;
+  overflow: hidden;
+  -webkit-user-select: none;
 }
 
 #result_button input {
   padding: 0 20% 0 20%;
   height: 100%;
+  -webkit-user-select: none;
 }
 
 #wrapper {
